@@ -1,0 +1,38 @@
+<div class="order-history-container" *ngIf="!isLoading; else loading">
+  <h2>Your Order History</h2>
+
+  <table *ngIf="orderHistory.length > 0; else noOrders" class="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Total Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orderHistory">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.orderDate | date:'medium' }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of order.items">
+              {{ item.quantity }} x {{ item.itemName }} {{ item.price | number:'1.2-2' }} €
+            </li>
+          </ul>
+        </td>
+        <td>{{ order.totalOrderCost | number:'1.2-2' }} €</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noOrders>
+  <p>You have no orders yet.</p>
+</ng-template>

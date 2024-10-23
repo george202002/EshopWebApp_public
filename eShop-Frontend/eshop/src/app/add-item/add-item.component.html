@@ -1,0 +1,28 @@
+<div class="add-item-form">
+  <h3>Add New Item</h3>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="item.name" name="name" required />
+
+    <label for="description">Description:</label>
+    <input id="description" [(ngModel)]="item.description" name="description" required />
+
+    <label for="price">Price:</label>
+    <input id="price" type="number" [(ngModel)]="item.price" name="price" required />
+
+    <label for="quantity">Quantity:</label>
+    <input id="quantity" type="number" [(ngModel)]="item.quantity" name="quantity" required />
+
+    <label for="image">Image:</label>
+    <input id="image" type="file" (change)="onFileSelected($event)" required />
+
+    <button type="submit">Add Item</button>
+  </form>
+
+  <div *ngIf="itemError" class="item-error">
+    <p>Item error.</p>
+  </div>
+  <div *ngIf="itemAdded" class="item-success">
+    <p>Item added.</p>
+  </div>
+</div>

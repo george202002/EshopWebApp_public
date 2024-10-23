@@ -1,0 +1,40 @@
+<div class="edit-item-form">
+  <h3>Edit Item</h3>
+  <form (ngSubmit)="updateItem()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input [(ngModel)]="item.name" name="name" id="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea [(ngModel)]="item.description" name="description" id="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" [(ngModel)]="item.price" name="price" id="price" required step="0.01"/>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" [(ngModel)]="item.quantity" name="quantity" id="quantity" required />
+    </div>
+
+    <div class="form-group">
+      <label for="image">Item Image:</label>
+      <input type="file" (change)="onFileSelected($event)" id="image" />
+    </div>
+
+    <button type="submit" class="update-button">Update Item</button>
+  </form>
+
+  <div *ngIf="itemError" class="item-error">
+    <p>Item error.</p>
+    <a routerLink="/admin">Back to Admin page</a>
+  </div>
+  <div *ngIf="itemEdited" class="item-success">
+    <p>Item edited.</p>
+    <a routerLink="/admin">Back to Admin page</a>
+  </div>
+</div>

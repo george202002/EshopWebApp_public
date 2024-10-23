@@ -1,0 +1,101 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+  <form (ngSubmit)="processPayment()" #checkoutForm="ngForm">
+    <h3>Payment Information</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Card Number</mat-label>
+      <input matInput placeholder="Card Number" name="cardNumber" ngModel required pattern="\d{16}">
+      <mat-error *ngIf="checkoutForm.form.controls['cardNumber']?.errors?.['required']">
+        Card Number is required
+      </mat-error>
+      <mat-error *ngIf="checkoutForm.form.controls['cardNumber']?.errors?.['pattern']">
+        Card Number must be 16 digits
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cardholder Name</mat-label>
+      <input matInput placeholder="Cardholder Name" name="cardholderName" ngModel required>
+      <mat-error *ngIf="checkoutForm.form.controls['cardholderName']?.errors?.['required']">
+        Cardholder Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Expiry Date</mat-label>
+      <input matInput placeholder="MM/YY" name="expiryDate" ngModel required pattern="^(0[1-9]|1[0-2])\/\d{2}$">
+      <mat-error *ngIf="checkoutForm.form.controls['expiryDate']?.errors?.['required']">
+        Expiry Date is required
+      </mat-error>
+      <mat-error *ngIf="checkoutForm.form.controls['expiryDate']?.errors?.['pattern']">
+        Expiry Date must be in MM/YY format
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CVV</mat-label>
+      <input matInput placeholder="CVV" name="cvv" ngModel required pattern="\d{3}">
+      <mat-error *ngIf="checkoutForm.form.controls['cvv']?.errors?.['required']">
+        CVV is required
+      </mat-error>
+      <mat-error *ngIf="checkoutForm.form.controls['cvv']?.errors?.['pattern']">
+        CVV must be 3 digits
+      </mat-error>
+    </mat-form-field>
+
+    <h3>Shipping Information</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Full Name</mat-label>
+      <input matInput placeholder="Full Name" name="fullName" ngModel required>
+      <mat-error *ngIf="checkoutForm.form.controls['fullName']?.errors?.['required']">
+        Full Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Address" name="address" ngModel required>
+      <mat-error *ngIf="checkoutForm.form.controls['address']?.errors?.['required']">
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="City" name="city" ngModel required>
+      <mat-error *ngIf="checkoutForm.form.controls['city']?.errors?.['required']">
+        City is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <input matInput placeholder="State" name="state" ngModel required>
+      <mat-error *ngIf="checkoutForm.form.controls['state']?.errors?.['required']">
+        State is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>ZIP Code</mat-label>
+      <input matInput placeholder="ZIP Code" name="zip" ngModel required pattern="\d{5}">
+      <mat-error *ngIf="checkoutForm.form.controls['zip']?.errors?.['required']">
+        ZIP Code is required
+      </mat-error>
+      <mat-error *ngIf="checkoutForm.form.controls['zip']?.errors?.['pattern']">
+        ZIP Code must be 5 digits
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="!checkoutForm.form.valid">Pay</button>
+  </form>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="paymentSuccess" class="payment-success">
+    <p>Payment successful! Thank you for your purchase.</p>
+  </div>
+</div>

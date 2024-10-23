@@ -1,0 +1,55 @@
+/* header.component.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Make the header fixed */
+  top: 0; /* Fix to the top */
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item {
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-item:hover {
+  color: #1e90ff;
+  transform: translateY(-2px);
+}
+
+.navbar-title {
+  font-size: 1.5em;
+}
+
+.logout-button {
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0b6ea1;
+  transform: translateY(-2px);
+}
+
+.logout-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #1e90ff;
+}

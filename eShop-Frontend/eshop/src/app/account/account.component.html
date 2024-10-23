@@ -1,0 +1,30 @@
+<!-- account.component.html -->
+<form [formGroup]="formGroup" class="account-form">
+  <div class="header">Account Info</div>
+
+  <div class="fields">
+    <mat-form-field class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Surname</mat-label>
+      <input matInput placeholder="Surname" formControlName="surname">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput placeholder="Date Of Birth" formControlName="dob">
+    </mat-form-field>
+  </div>
+
+  <div class="text-center">
+    <button mat-raised-button class="save-button" color="primary" (click)="onSave()">Save</button>
+  </div>
+</form>

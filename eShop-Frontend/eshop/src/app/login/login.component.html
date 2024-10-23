@@ -1,0 +1,51 @@
+<div class="forms-container">
+  <form (submit)="loginUser()">
+    <h2>Login</h2>
+    <div>
+      <label for="login-username">Username:</label>
+      <input [(ngModel)]="loginUsername" type="text" id="login-username" name="login-username" />
+    </div>
+    <div>
+      <label for="login-password">Password:</label>
+      <input [(ngModel)]="loginPassword" type="password" id="login-password" name="login-password" />
+    </div>
+    <div>
+      <input type="submit" value="Login" />
+    </div>
+    <div class="error-message" *ngIf="loginError">{{ loginError }}</div>
+    <div class="success-message" *ngIf="loginSuccess">{{ loginSuccess }}</div>
+  </form>
+
+  <form (submit)="registerUser()">
+    <h2>Sign Up</h2>
+    <div>
+      <label for="username">Username:</label>
+      <input [(ngModel)]="username" type="text" id="username" name="username" />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input [(ngModel)]="password" type="password" id="password" name="password" />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input [(ngModel)]="name" type="text" id="name" name="name" />
+    </div>
+    <div>
+      <label for="surname">Surname:</label>
+      <input [(ngModel)]="surname" type="text" id="surname" name="surname" />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input [(ngModel)]="email" type="text" id="email" name="email" />
+    </div>
+    <div>
+      <label for="dob">Date of Birth:</label>
+      <input [(ngModel)]="dob" type="date" id="dob" name="dob" />
+    </div>
+    <div>
+      <input type="submit" value="Sign Up" />
+    </div>
+    <div class="error-message" *ngIf="registrationError">{{ registrationError }}</div>
+    <div class="success-message" *ngIf="registrationSuccess">{{ registrationSuccess }}</div>
+  </form>
+</div>

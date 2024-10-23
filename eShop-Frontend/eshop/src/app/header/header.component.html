@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a class="navbar-item" [routerLink]="isAdmin ? '/admin' : '/home'">Home</a>
+    <a class="navbar-item" routerLink="/account">Account</a>
+    <!-- Hide Cart and Orders links if the user is an admin -->
+    <a *ngIf="!isAdmin" class="navbar-item" routerLink="/cart">Cart</a>
+    <a *ngIf="!isAdmin" class="navbar-item" routerLink="/order-history">Orders</a>
+  </div>
+  <div class="navbar-center">
+    <span class="navbar-title">Welcome</span>
+  </div>
+  <div class="navbar-right">
+    <button mat-flat-button class="logout-button" [disabled]="!userService.isAuthenticated()" (click)="logout()">Logout</button>
+  </div>
+</nav>

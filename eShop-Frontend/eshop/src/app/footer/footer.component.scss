@@ -1,0 +1,39 @@
+/* footer.component.scss */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: fixed; /* Make the footer fixed */
+  bottom: 0; /* Fix to the bottom */
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 1000; /* Ensure it stays above other elements */
+
+  .social-media {
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: #1e90ff;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .made-by {
+    small {
+      font-size: 0.75em;
+      color: #ccc;
+    }
+  }
+}
